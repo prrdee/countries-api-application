@@ -13,6 +13,9 @@ const initState: AppState = {
   ui: {
     dialogOpen: {},
   },
+  countries: {
+    data: [],
+  },
 }
 
 export default function makeStore(initialState = initState) {
