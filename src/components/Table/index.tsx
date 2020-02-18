@@ -1,11 +1,14 @@
 import * as React from 'react'
 import TableRow from '../TableRow'
-import { TableProps } from '../../types'
+import { useSelector } from 'react-redux'
+import { AppState } from '../../types'
 
-const Table = ({ countries }: TableProps) => {
+const Table = () => {
+  const { filteredItems } = useSelector((state: AppState) => state.countries)
+
   return (
     <tbody>
-      {countries.map(country => (
+      {filteredItems.map(country => (
         <TableRow country={country} />
       ))}
     </tbody>

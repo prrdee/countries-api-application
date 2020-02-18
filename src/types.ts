@@ -80,13 +80,6 @@ export type FlagProps = {
   name: string
 }
 
-export type SearchProps = {
-  handleSearchTextChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-}
-export type TableProps = {
-  countries: Country[]
-}
-
 export type TableHeaderProps = {
   header: string[]
 }

@@ -1,7 +1,13 @@
 import * as React from 'react'
-import { SearchProps } from '../../types'
+import { useDispatch } from 'react-redux'
+import { filterAllCountries } from '../../redux/actions'
 
-const Search = ({ handleSearchTextChange }: SearchProps) => {
+const Search = () => {
+  const dispatch = useDispatch()
+
+  const handleSearchTextChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+    dispatch(filterAllCountries(event.target.value))
+
   return (
     <input
       type="search"
