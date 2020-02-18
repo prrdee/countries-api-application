@@ -5,6 +5,7 @@ import { fetchAllCountries } from '../redux/actions'
 import Search from '../components/Search'
 import TableHeader from '../components/TableHeader'
 import Table from '../components/Table'
+import Cart from '../components/Cart'
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -19,6 +20,7 @@ export default function Home() {
     <>
       <div>
         <Search />
+        <Cart />
         <table>
           <TableHeader header={header} />
           <Table />

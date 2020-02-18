@@ -3,6 +3,8 @@ import { Dispatch } from 'redux'
 import {
   GET_ALL_COUNTRIES,
   FILTER_ALL_COUNTRIES,
+  ADD_COUNTRY_TO_CART,
+  REMOVE_COUNTRY_FROM_CART,
   CountriesActions,
   Country,
 } from '../../types'
@@ -21,6 +23,24 @@ export const filterAllCountries = (searchText: string): CountriesActions => {
     type: FILTER_ALL_COUNTRIES,
     payload: {
       searchText,
+    },
+  }
+}
+
+export const addCountryToCart = (country: Country): CountriesActions => {
+  return {
+    type: ADD_COUNTRY_TO_CART,
+    payload: {
+      country,
+    },
+  }
+}
+
+export const removeCountryFromCart = (country: Country): CountriesActions => {
+  return {
+    type: REMOVE_COUNTRY_FROM_CART,
+    payload: {
+      country,
     },
   }
 }

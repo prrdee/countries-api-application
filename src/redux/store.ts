@@ -16,6 +16,7 @@ const initState: AppState = {
   countries: {
     items: [],
     filteredItems: [],
+    inCartItems: [],
   },
 }
 

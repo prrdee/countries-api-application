@@ -7,6 +7,9 @@ export const GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES'
 
 export const FILTER_ALL_COUNTRIES = 'FILTER_ALL_COUNTRIES'
 
+export const ADD_COUNTRY_TO_CART = 'ADD_COUNTRY_TO_CART'
+export const REMOVE_COUNTRY_FROM_CART = 'REMOVE_COUNTRY_FROM_CART'
+
 // Enum
 export enum DialogType {
   SignIn = 'signIn',
@@ -100,12 +103,31 @@ export type FilterAllCountriesAction = {
   }
 }
 
-export type CountriesActions = GetAllCountriesAction | FilterAllCountriesAction
+export type AddCountryToCartAction = {
+  type: typeof ADD_COUNTRY_TO_CART
+  payload: {
+    country: Country
+  }
+}
+
+export type RemoveCountryFromCartAction = {
+  type: typeof REMOVE_COUNTRY_FROM_CART
+  payload: {
+    country: Country
+  }
+}
+
+export type CountriesActions =
+  | GetAllCountriesAction
+  | FilterAllCountriesAction
+  | AddCountryToCartAction
+  | RemoveCountryFromCartAction
 
 // countries
 export type CountriesState = {
   items: Country[]
   filteredItems: Country[]
+  inCartItems: Country[]
 }
 
 export type AppState = {

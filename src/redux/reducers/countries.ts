@@ -3,10 +3,12 @@ import {
   CountriesActions,
   GET_ALL_COUNTRIES,
   FILTER_ALL_COUNTRIES,
+  ADD_COUNTRY_TO_CART,
+  REMOVE_COUNTRY_FROM_CART,
 } from '../../types'
 
 export default function countries(
-  state: CountriesState = { items: [], filteredItems: [] },
+  state: CountriesState = { items: [], filteredItems: [], inCartItems: [] },
   action: CountriesActions
 ): CountriesState {
   switch (action.type) {
@@ -24,6 +26,24 @@ export default function countries(
         item.name.toLowerCase().includes(searchText.toLowerCase())
       ),
     }
+  }
+  case ADD_COUNTRY_TO_CART: {
+    const { country } = action.payload
+    if (state.inCartItems.find(p => p.name === country.name)) {
+      return state
+    }
+    // Always return new state (e.g, new object) if changed
+    return { ...state, inCartItems: [...state.inCartItems, country] }
+  }
+
+  case REMOVE_COUNTRY_FROM_CART: {
+    const { country } = action.payload
+    const index = state.inCartItems.findIndex(p => p.name === country.name)
+    if (index >= 0) {
+      state.inCartItems.splice(index, 1)
+      return { ...state, inCartItems: [...state.inCartItems] }
+    }
+    return state
   }
 
   default:
