@@ -5,6 +5,8 @@ export const TOGGLE_DIALOG = 'TOGGLE_DIALOG'
 
 export const GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES'
 
+export const FILTER_ALL_COUNTRIES = 'FILTER_ALL_COUNTRIES'
+
 // Enum
 export enum DialogType {
   SignIn = 'signIn',
@@ -16,19 +18,6 @@ export type Product = {
   id: string
   name: string
   price: number
-}
-
-// A Country
-export type Country = {
-  name: string
-  region: string
-}
-
-export type GetAllCountriesAction = {
-  type: typeof GET_ALL_COUNTRIES
-  payload: {
-    countries: Country[]
-  }
 }
 
 export type AddProductAction = {
@@ -52,8 +41,6 @@ export type ToggleDialogAction = {
   }
 }
 
-export type CountriesActions = GetAllCountriesAction
-
 export type UiActions = ToggleDialogAction
 
 // Use this union in reducer
@@ -70,10 +57,34 @@ export type UiState = {
   }
 }
 
-// countries
+// //////////////////////////////////////////////////////////////////////////////////////// A Country
+export type Country = {
+  name: string
+  region: string
+  population: string
+  flag: string
+}
 
+export type GetAllCountriesAction = {
+  type: typeof GET_ALL_COUNTRIES
+  payload: {
+    countries: Country[]
+  }
+}
+
+export type FilterAllCountriesAction = {
+  type: typeof FILTER_ALL_COUNTRIES
+  payload: {
+    searchText: string
+  }
+}
+
+export type CountriesActions = GetAllCountriesAction | FilterAllCountriesAction
+
+// countries
 export type CountriesState = {
-  data: Country[]
+  items: Country[]
+  filteredItems: Country[]
 }
 
 export type AppState = {

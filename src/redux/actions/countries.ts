@@ -1,12 +1,26 @@
 import { Dispatch } from 'redux'
 
-import { GET_ALL_COUNTRIES, CountriesActions, Country } from '../../types'
+import {
+  GET_ALL_COUNTRIES,
+  FILTER_ALL_COUNTRIES,
+  CountriesActions,
+  Country,
+} from '../../types'
 
-export function addAllCountries(countries: Country[]): CountriesActions {
+export const getAllCountries = (countries: Country[]): CountriesActions => {
   return {
     type: GET_ALL_COUNTRIES,
     payload: {
       countries,
+    },
+  }
+}
+
+export const filterAllCountries = (searchText: string): CountriesActions => {
+  return {
+    type: FILTER_ALL_COUNTRIES,
+    payload: {
+      searchText,
     },
   }
 }
@@ -18,7 +32,7 @@ export function fetchAllCountries() {
     return fetch('https://restcountries.eu/rest/v2/all')
       .then(resp => resp.json())
       .then(countries => {
-        dispatch(addAllCountries(countries))
+        dispatch(getAllCountries(countries))
       })
   }
 }

@@ -14,7 +14,8 @@ const initState: AppState = {
     dialogOpen: {},
   },
   countries: {
-    data: [],
+    items: [],
+    filteredItems: [],
   },
 }
 
