@@ -56,14 +56,42 @@ export type UiState = {
     [key in DialogType]?: boolean
   }
 }
+/////////////////// Components props
 
-// //////////////////////////////////////////////////////////////////////////////////////// A Country
+export type Language = {
+  name: string
+}
+
 export type Country = {
   name: string
-  region: string
-  population: string
+  nativeName: string
   flag: string
+  population: string
+  region: string
+  languages: Language[]
 }
+
+export type TableRowProps = {
+  country: Country
+}
+
+export type FlagProps = {
+  imageUrl: string
+  name: string
+}
+
+export type SearchProps = {
+  handleSearchTextChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
+export type TableProps = {
+  countries: Country[]
+}
+
+export type TableHeaderProps = {
+  header: string[]
+}
+
+// //////////////////////////////////////////////////////////////////////////////////////// A Country
 
 export type GetAllCountriesAction = {
   type: typeof GET_ALL_COUNTRIES

@@ -3,10 +3,15 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { AppState } from '../types'
 import { filterAllCountries, fetchAllCountries } from '../redux/actions'
+import Search from '../components/Search'
+import TableHeader from '../components/TableHeader'
+import Table from '../components/Table'
 
 export default function Home() {
   const dispatch = useDispatch()
   const { filteredItems } = useSelector((state: AppState) => state.countries)
+
+  const header = ['Flag', 'Name', 'Population', 'Language', 'Region', 'Action']
 
   useEffect(() => {
     dispatch(fetchAllCountries())
@@ -17,24 +22,13 @@ export default function Home() {
 
   return (
     <>
-      <h1>Home page</h1>
-      <input name="searchText" onChange={handleSearchTextChange} />
-      <table>
-        <tr>
-          <th>FLAG</th>
-          <th>NAME</th>
-          <th>POPULATION</th>
-          <th>REGION</th>
-        </tr>
-        {filteredItems.map(element => (
-          <tr>
-            <td>{element.flag}</td>
-            <td>{element.name}</td>
-            <td>{element.population}</td>
-            <td>{element.region}</td>
-          </tr>
-        ))}
-      </table>
+      <div>
+        <Search handleSearchTextChange={handleSearchTextChange} />
+        <table>
+          <TableHeader header={header} />
+          <Table countries={filteredItems} />
+        </table>
+      </div>
     </>
   )
 }
