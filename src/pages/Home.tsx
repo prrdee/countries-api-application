@@ -10,8 +10,6 @@ import Cart from '../components/Cart'
 export default function Home() {
   const dispatch = useDispatch()
 
-  const header = ['Flag', 'Name', 'Population', 'Language', 'Region', 'Action']
-
   useEffect(() => {
     dispatch(fetchAllCountries())
   }, [dispatch])
@@ -22,7 +20,7 @@ export default function Home() {
         <Search />
         <Cart />
         <table>
-          <TableHeader header={header} />
+          <TableHeader />
           <Table />
         </table>
       </div>

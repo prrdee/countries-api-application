@@ -9,7 +9,7 @@ const Table = () => {
   return (
     <tbody>
       {filteredItems.map(country => (
-        <TableRow country={country} />
+        <TableRow key={country.name} country={country} />
       ))}
     </tbody>
   )

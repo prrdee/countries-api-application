@@ -3,6 +3,7 @@ import Flag from '../Flag'
 import { TableRowProps } from '../../types'
 import { addCountryToCart } from '../../redux/actions'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 const TableRow = ({ country }: TableRowProps) => {
   const dispatch = useDispatch()
@@ -12,7 +13,9 @@ const TableRow = ({ country }: TableRowProps) => {
       <td>
         <Flag imageUrl={country.flag} name={country.name} />
       </td>
-      <td>{country.name}</td>
+      <td>
+        <Link to={`/countries/${country.name}`}>{country.name}</Link>
+      </td>
       <td>{country.population}</td>
       <td>
         {country.languages.map(language => (

@@ -11,12 +11,12 @@ const Cart = () => {
 
   return (
     <>
-      <h1>Home page</h1>
-      {countries.length <= 0 && <div>No products in cart</div>}
+      <h1>Countries Cart</h1>
+      {countries.length <= 0 && <div>No countries in cart</div>}
       <ul>
         {countries.map(country => (
           <li key={country.name}>
-            {`${country.name} - Population: ${country.population}`}
+            {` Name : ${country.name} -- Population: ${country.population}`}
             {'  '}
             <button onClick={() => dispatch(removeCountryFromCart(country))}>
               Remove

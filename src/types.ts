@@ -83,10 +83,6 @@ export type FlagProps = {
   name: string
 }
 
-export type TableHeaderProps = {
-  header: string[]
-}
-
 // //////////////////////////////////////////////////////////////////////////////////////// A Country
 
 export type GetAllCountriesAction = {

@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { TableHeaderProps } from '../../types'
+const header = ['Flag', 'Name', 'Population', 'Language', 'Region', 'Action']
 
-const TableHeader = ({ header }: TableHeaderProps) => {
+const TableHeader = () => {
   return (
     <thead>
       <tr>
