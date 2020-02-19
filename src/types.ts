@@ -1,11 +1,12 @@
 // Action types
-export const ADD_PRODUCT = 'ADD_PRODUCT'
-export const REMOVE_PRODUCT = 'REMOVE_PRODUCT'
+
 export const TOGGLE_DIALOG = 'TOGGLE_DIALOG'
 
 export const GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES'
 
 export const FILTER_ALL_COUNTRIES = 'FILTER_ALL_COUNTRIES'
+
+export const SORT_COUNTRIES = 'SORT_COUNTRIES'
 
 export const ADD_COUNTRY_TO_CART = 'ADD_COUNTRY_TO_CART'
 export const REMOVE_COUNTRY_FROM_CART = 'REMOVE_COUNTRY_FROM_CART'
@@ -16,25 +17,9 @@ export enum DialogType {
   SignUp = 'signUp',
 }
 
-// A product
-export type Product = {
-  id: string
+export type HeaderObject = {
   name: string
-  price: number
-}
-
-export type AddProductAction = {
-  type: typeof ADD_PRODUCT
-  payload: {
-    product: Product
-  }
-}
-
-export type RemoveProductAction = {
-  type: typeof REMOVE_PRODUCT
-  payload: {
-    product: Product
-  }
+  isSorted: boolean
 }
 
 export type ToggleDialogAction = {
@@ -46,13 +31,6 @@ export type ToggleDialogAction = {
 
 export type UiActions = ToggleDialogAction
 
-// Use this union in reducer
-export type ProductActions = AddProductAction | RemoveProductAction
-
-export type ProductState = {
-  inCart: Product[]
-}
-
 // Using dynamic keys from an enum
 export type UiState = {
   dialogOpen: {
@@ -63,6 +41,7 @@ export type UiState = {
 
 export type Language = {
   name: string
+  iso639_1: string
 }
 
 export type Country = {
@@ -99,6 +78,13 @@ export type FilterAllCountriesAction = {
   }
 }
 
+export type SortCountriesAction = {
+  type: typeof SORT_COUNTRIES
+  payload: {
+    header: HeaderObject
+  }
+}
+
 export type AddCountryToCartAction = {
   type: typeof ADD_COUNTRY_TO_CART
   payload: {
@@ -118,6 +104,7 @@ export type CountriesActions =
   | FilterAllCountriesAction
   | AddCountryToCartAction
   | RemoveCountryFromCartAction
+  | SortCountriesAction
 
 // countries
 export type CountriesState = {
@@ -127,7 +114,6 @@ export type CountriesState = {
 }
 
 export type AppState = {
-  product: ProductState
   ui: UiState
   countries: CountriesState
 }

@@ -5,8 +5,10 @@ import {
   FILTER_ALL_COUNTRIES,
   ADD_COUNTRY_TO_CART,
   REMOVE_COUNTRY_FROM_CART,
+  SORT_COUNTRIES,
   CountriesActions,
   Country,
+  HeaderObject,
 } from '../../types'
 
 export const getAllCountries = (countries: Country[]): CountriesActions => {
@@ -23,6 +25,15 @@ export const filterAllCountries = (searchText: string): CountriesActions => {
     type: FILTER_ALL_COUNTRIES,
     payload: {
       searchText,
+    },
+  }
+}
+
+export const sortCountries = (header: HeaderObject): CountriesActions => {
+  return {
+    type: SORT_COUNTRIES,
+    payload: {
+      header,
     },
   }
 }

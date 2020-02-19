@@ -3,9 +3,12 @@ import {
   CountriesActions,
   GET_ALL_COUNTRIES,
   FILTER_ALL_COUNTRIES,
+  SORT_COUNTRIES,
   ADD_COUNTRY_TO_CART,
   REMOVE_COUNTRY_FROM_CART,
 } from '../../types'
+
+import _ from 'lodash'
 
 export default function countries(
   state: CountriesState = { items: [], filteredItems: [], inCartItems: [] },
@@ -25,6 +28,16 @@ export default function countries(
       filteredItems: state.items.filter(item =>
         item.name.toLowerCase().includes(searchText.toLowerCase())
       ),
+    }
+  }
+  case SORT_COUNTRIES: {
+    const { header } = action.payload
+
+    return {
+      ...state,
+      filteredItems: header.isSorted
+        ? _.sortBy(state.filteredItems, header.name.toLowerCase())
+        : _.sortBy(state.filteredItems, header.name.toLowerCase()).reverse(),
     }
   }
   case ADD_COUNTRY_TO_CART: {
