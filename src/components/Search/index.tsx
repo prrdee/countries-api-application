@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useDispatch } from 'react-redux'
 import { filterAllCountries } from '../../redux/actions'
-import { TextInput } from 'grommet'
+import { TextInput, Box } from 'grommet'
 
 const Search = () => {
   const dispatch = useDispatch()
@@ -10,13 +10,17 @@ const Search = () => {
     dispatch(filterAllCountries(event.target.value))
 
   return (
-    <TextInput
-      type="search"
-      placeholder="Search"
-      aria-label="Search"
-      name="searchText"
-      onChange={handleSearchTextChange}
-    />
+    <>
+      <Box>
+        <TextInput
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          name="searchText"
+          onChange={handleSearchTextChange}
+        />
+      </Box>
+    </>
   )
 }
 

@@ -1,8 +1,11 @@
 import * as React from 'react'
 import { FlagProps } from '../../types'
+import { Box, Image } from 'grommet'
 
 const Flag = ({ imageUrl, name }: FlagProps) => (
-  <img src={imageUrl} alt={name} height="40px" width="40px" />
+  <Box height="small" width="small" border="all">
+    <Image fit="contain" src={imageUrl} alt={name} />
+  </Box>
 )
 
 export default Flag

@@ -1,34 +1,48 @@
 import * as React from 'react'
 import Flag from '../Flag'
-import { TableRowProps } from '../../types'
+import { TableRowProps, AppState } from '../../types'
 import { addCountryToCart } from '../../redux/actions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { TableCell, TableRow as GrommentTableRow, Button } from 'grommet'
+import { AddCircle } from 'grommet-icons'
 
 const TableRow = ({ country }: TableRowProps) => {
+  const inCartItems = useSelector(
+    (state: AppState) => state.countries.inCartItems
+  )
+
   const dispatch = useDispatch()
 
   return (
-    <tr>
-      <td>
+    <GrommentTableRow>
+      <TableCell>
         <Flag imageUrl={country.flag} name={country.name} />
-      </td>
-      <td>
+      </TableCell>
+      <TableCell>
         <Link to={`/countries/${country.name}`}>{country.name}</Link>
-      </td>
-      <td>{country.population}</td>
-      <td>
+      </TableCell>
+      <TableCell>{country.population}</TableCell>
+      <TableCell>
         {country.languages.map(language => (
           <ul key={language.name}>
             <li>{language.name}</li>
           </ul>
         ))}
-      </td>
-      <td>{country.region}</td>
-      <td>
-        <button onClick={() => dispatch(addCountryToCart(country))}>ADD</button>
-      </td>
-    </tr>
+      </TableCell>
+      <TableCell>{country.region}</TableCell>
+      <TableCell>
+        <Button
+          disabled={
+            inCartItems.find(item => item.name === country.name) ? true : false
+          }
+          label="ADD"
+          icon={<AddCircle />}
+          primary={true}
+          onClick={() => dispatch(addCountryToCart(country))}
+        />
+      </TableCell>
+    </GrommentTableRow>
   )
 }
 

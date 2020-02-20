@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchAllCountries } from '../redux/actions'
 import { AppState } from '../types'
+import ApplicationBar from '../components/ApplicationBar'
 
 export const CountryInfo = () => {
   const { name } = useParams()
@@ -19,10 +20,11 @@ export const CountryInfo = () => {
   const country: any = countries.find(country => country.name === name)
 
   return (
-    <div>
+    <>
+      <ApplicationBar />
       <p>{country.name}</p>
       <p>{country.region}</p>
-    </div>
+    </>
   )
 }
 

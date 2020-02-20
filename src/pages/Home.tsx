@@ -2,12 +2,10 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 import { fetchAllCountries } from '../redux/actions'
-import Search from '../components/Search'
-import TableHeader from '../components/TableHeader'
 import Table from '../components/Table'
-import Cart from '../components/Cart'
 
 import { Grommet } from 'grommet'
+import ApplicationBar from '../components/ApplicationBar'
 
 const theme = {
   global: {
@@ -43,14 +41,8 @@ export default function Home() {
 
   return (
     <Grommet theme={theme}>
-      <div>
-        <Search />
-        <Cart />
-        <table>
-          <TableHeader />
-          <Table />
-        </table>
-      </div>
+      <ApplicationBar />
+      <Table />
     </Grommet>
   )
 }
