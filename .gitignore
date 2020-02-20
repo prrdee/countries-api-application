@@ -24,3 +24,6 @@ yarn-error.log*
 
 *.swp
 *.swo
+
+# I have to remove all the props types from the types file and move it to their respective components
+# prop types should not be put in the types file

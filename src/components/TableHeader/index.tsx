@@ -25,7 +25,7 @@ const TableHeader = () => {
                 element.isSorted = element.isSorted ? false : true
               }}
             >
-              {element.name.toLowerCase()}
+              {element.name}
             </button>
           </th>
         ))}
