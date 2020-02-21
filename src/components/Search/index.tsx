@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { useDispatch } from 'react-redux'
+
 import { filterAllCountries } from '../../redux/actions'
+
 import { TextInput, Box } from 'grommet'
 
 const Search = () => {

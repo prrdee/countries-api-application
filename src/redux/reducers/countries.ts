@@ -25,8 +25,10 @@ export default function countries(
 
     return {
       ...state,
-      filteredItems: state.items.filter(item =>
-        item.name.toLowerCase().includes(searchText.toLowerCase())
+      filteredItems: state.items.filter(
+        item =>
+          item.name.toLowerCase().includes(searchText.toLowerCase()) ||
+            item.nativeName.toLowerCase().includes(searchText.toLowerCase())
       ),
     }
   }

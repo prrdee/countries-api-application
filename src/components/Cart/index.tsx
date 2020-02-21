@@ -1,10 +1,12 @@
 import * as React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
 import { AppState } from '../../types'
 import { removeCountryFromCart } from '../../redux/actions'
+import { ThemeContext } from '../../themes'
+
 import { DropButton, Box, Stack, Text, Button } from 'grommet'
 import { Cart as GrommitCart, SubtractCircle } from 'grommet-icons'
-import { ThemeContext } from '../../themes'
 
 const Cart = () => {
   const dispatch = useDispatch()

@@ -1,48 +1,25 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { fetchAllCountries } from '../redux/actions'
-import Table from '../components/Table'
+import { AppState } from '../types'
 
-import { Grommet } from 'grommet'
+import Table from '../components/Table'
 import ApplicationBar from '../components/ApplicationBar'
 
-const theme = {
-  global: {
-    colors: {
-      'light-2': '#f5f5f5',
-      text: {
-        light: 'rgba(0, 0, 0, 0.87)',
-      },
-    },
-    edgeSize: {
-      small: '14px',
-    },
-    elevation: {
-      light: {
-        medium:
-          '0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)',
-      },
-    },
-    font: {
-      family: 'IBM Plex Sans',
-      size: '18px',
-      height: '20px',
-    },
-  },
-}
-
 export default function Home() {
+  const items = useSelector((state: AppState) => state.countries.items)
   const dispatch = useDispatch()
 
-  useEffect(() => {
+  if (items.length === 0) {
     dispatch(fetchAllCountries())
-  }, [dispatch])
+    return <p>Loading ...</p>
+  }
 
   return (
-    <Grommet theme={theme}>
+    <>
       <ApplicationBar />
       <Table />
-    </Grommet>
+    </>
   )
 }

@@ -1,9 +1,12 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+
 import { fetchAllCountries } from '../redux/actions'
-import { AppState } from '../types'
+import { AppState, Country } from '../types'
 import ApplicationBar from '../components/ApplicationBar'
+
+import { Image, Heading, Main, Paragraph, Box } from 'grommet'
 
 export const CountryInfo = () => {
   const { name } = useParams()
@@ -17,13 +20,23 @@ export const CountryInfo = () => {
     return <p>Loading...</p>
   }
 
-  const country: any = countries.find(country => country.name === name)
+  const country: Country | any = countries.find(
+    country => country.name === name
+  )
 
   return (
     <>
       <ApplicationBar />
-      <p>{country.name}</p>
-      <p>{country.region}</p>
+      <Main pad="large">
+        <Box height="small" width="small">
+          <Image fit="contain" src={country.flag} alt={country.name} />
+        </Box>
+        <Heading>{country.name}</Heading>
+        <Paragraph>
+          has a population of {country.population} people and is in{' '}
+          {country.region}.
+        </Paragraph>
+      </Main>
     </>
   )
 }

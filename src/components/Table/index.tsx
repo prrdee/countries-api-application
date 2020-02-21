@@ -1,9 +1,11 @@
 import * as React from 'react'
-import TableRow from '../TableRow'
 import { useSelector } from 'react-redux'
-import { AppState } from '../../types'
-import { Box } from 'grommet'
+
+import TableRow from '../TableRow'
 import TableHeader from '../TableHeader'
+import { AppState } from '../../types'
+
+import { Box } from 'grommet'
 
 const Table = () => {
   const { filteredItems } = useSelector((state: AppState) => state.countries)

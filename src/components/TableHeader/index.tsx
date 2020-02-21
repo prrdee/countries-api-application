@@ -1,6 +1,8 @@
 import * as React from 'react'
 import { useDispatch } from 'react-redux'
+
 import { sortCountries } from '../../redux/actions'
+
 import {
   TableHeader as GrommetTableHeader,
   TableRow,

@@ -1,7 +1,9 @@
 import * as React from 'react'
-import { Button } from 'grommet'
 import { useContext } from 'react'
+
 import { ThemeContext } from '../../themes'
+
+import { Button } from 'grommet'
 import { Paint } from 'grommet-icons'
 
 const ThemeMenu = () => {

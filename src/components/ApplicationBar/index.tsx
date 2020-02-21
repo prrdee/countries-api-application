@@ -1,10 +1,12 @@
 import * as React from 'react'
 
 import Cart from '../Cart'
-import { Header, Heading, Anchor } from 'grommet'
 import Search from '../Search'
 import ThemeMenu from '../ThemeMenu'
+
 import { ThemeContext } from '../../themes'
+
+import { Header, Heading, Anchor } from 'grommet'
 import { Globe } from 'grommet-icons'
 
 const ApplicationBar = () => {

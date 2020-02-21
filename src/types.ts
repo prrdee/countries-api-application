@@ -1,11 +1,9 @@
 // Action types
-
 export const TOGGLE_DIALOG = 'TOGGLE_DIALOG'
 
 export const GET_ALL_COUNTRIES = 'GET_ALL_COUNTRIES'
 
 export const FILTER_ALL_COUNTRIES = 'FILTER_ALL_COUNTRIES'
-
 export const SORT_COUNTRIES = 'SORT_COUNTRIES'
 
 export const ADD_COUNTRY_TO_CART = 'ADD_COUNTRY_TO_CART'
@@ -37,7 +35,6 @@ export type UiState = {
     [key in DialogType]?: boolean
   }
 }
-/////////////////// Components props
 
 export type Language = {
   name: string
@@ -52,17 +49,6 @@ export type Country = {
   region: string
   languages: Language[]
 }
-
-export type TableRowProps = {
-  country: Country
-}
-
-export type FlagProps = {
-  imageUrl: string
-  name: string
-}
-
-// //////////////////////////////////////////////////////////////////////////////////////// A Country
 
 export type GetAllCountriesAction = {
   type: typeof GET_ALL_COUNTRIES
@@ -106,7 +92,6 @@ export type CountriesActions =
   | RemoveCountryFromCartAction
   | SortCountriesAction
 
-// countries
 export type CountriesState = {
   items: Country[]
   filteredItems: Country[]

@@ -1,13 +1,19 @@
 import * as React from 'react'
-import Flag from '../Flag'
-import { TableRowProps, AppState } from '../../types'
-import { addCountryToCart } from '../../redux/actions'
-import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { useContext } from 'react'
+
+import { ThemeContext } from '../../themes'
+import Flag from '../Flag'
+import { Country, AppState } from '../../types'
+import { addCountryToCart } from '../../redux/actions'
+
 import { TableCell, TableRow as GrommentTableRow, Button, Text } from 'grommet'
 import { AddCircle } from 'grommet-icons'
-import { ThemeContext } from '../../themes'
-import { useContext } from 'react'
+
+export type TableRowProps = {
+  country: Country
+}
 
 const TableRow = ({ country }: TableRowProps) => {
   const inCartItems = useSelector(
