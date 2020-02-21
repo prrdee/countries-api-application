@@ -8,7 +8,7 @@ import {
   REMOVE_COUNTRY_FROM_CART,
 } from '../../types'
 
-import _ from 'lodash'
+let _ = require('lodash')
 
 export default function countries(
   state: CountriesState = { items: [], filteredItems: [], inCartItems: [] },
