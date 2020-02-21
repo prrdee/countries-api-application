@@ -24,8 +24,9 @@ const TableHeader = () => {
     <GrommetTableHeader>
       <TableRow>
         {header.map(element => (
-          <TableCell key={element.name}>
+          <TableCell key={element.name} align="center">
             <Heading
+              size="small"
               level="2"
               onClick={() => {
                 dispatch(sortCountries(element))

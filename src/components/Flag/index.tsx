@@ -3,7 +3,7 @@ import { FlagProps } from '../../types'
 import { Box, Image } from 'grommet'
 
 const Flag = ({ imageUrl, name }: FlagProps) => (
-  <Box height="small" width="small" border="all">
+  <Box height="small" width="small">
     <Image fit="contain" src={imageUrl} alt={name} />
   </Box>
 )
