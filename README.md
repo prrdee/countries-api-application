@@ -1,6 +1,16 @@
 # Fast Track React app template with TypeScript & Redux 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Search
+You can search countries with name and native names for example Finland and Suomi
+
+## Sort
+You can sort countries by clicking header for example clicking on Population will sort countries in the
+table based on population.
+
+## Add and Remove
+You can add countries to cart and remove from cart
+
 ## Installation
 You should use either `npm` or `yarn` but not both. It's recommeded to use `yarn`
 
