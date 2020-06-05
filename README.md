@@ -1,4 +1,4 @@
-# Fast Track React app template with TypeScript & Redux 
+# Countries Api Application 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Search
