@@ -11,6 +11,10 @@ table based on population.
 ## Add and Remove
 You can add countries to cart and remove from cart
 
+### Screenshot
+![Screenshot of application](https://user-images.githubusercontent.com/18732242/74999058-3c657900-5463-11ea-88ac-f758223cad98.png "Optional title")
+
+
 ## Installation
 You should use either `npm` or `yarn` but not both. It's recommeded to use `yarn`
 
